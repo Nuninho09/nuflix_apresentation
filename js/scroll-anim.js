@@ -104,3 +104,32 @@ window.addEventListener("load", () => {
     }, 1200); // mantém splash visível ~1.2s
   }
 });
+
+// ===== Info Buttons (modal explicativo) =====
+document.querySelectorAll('.info-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const msg = btn.getAttribute('data-info');
+    showInfoModal(msg);
+  });
+});
+
+function showInfoModal(msg) {
+  let modal = document.getElementById('infoModal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'infoModal';
+    modal.innerHTML = `
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div class="modal-body"></div>
+  </div>
+`;
+    document.body.appendChild(modal);
+
+    modal.querySelector('.close').addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+  }
+modal.querySelector('.modal-body').innerHTML = msg;
+  modal.style.display = 'flex';
+}

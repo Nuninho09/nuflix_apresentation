@@ -340,3 +340,71 @@ footer {
     /* brilho mais lento em telas pequenas */
   }
 }
+
+/* ===== Botão Info ===== */
+.info-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px; /* espaço entre emoji e texto */
+
+  background: rgba(46, 9, 229, 0.9);
+  color: #fff;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  white-space: nowrap; /* impede quebra de linha */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: background 0.3s ease;
+}
+
+.info-btn:hover {
+  background: rgba(229, 9, 20, 1);
+}
+
+
+/* ===== Modal Info ===== */
+#infoModal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 9999;
+}
+
+#infoModal .modal-content {
+  background: #111;
+  color: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  max-width: 500px;     /* largura máxima */
+  max-height: 70vh;     /* altura máxima: 70% da tela */
+  overflow-y: auto;     /* scroll vertical automático */
+  text-align: left;     /* melhor leitura para textos grandes */
+  line-height: 1.6;     /* mais espaçamento entre linhas */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  position: relative;
+}
+
+
+#infoModal .close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #aaa;
+}
+
+#infoModal .close:hover {
+  color: #fff;
+}
