@@ -11,7 +11,7 @@
 
   let rafId = null;
   const MAX_TRANSLATE = 40;       // px máximos de deslocamento quando longe do centro
-  const FADE_RADIUS   = 0.75;     // quanto da janela influencia o fade (0.65 ~ suave)
+  const FADE_RADIUS = 0.75;     // quanto da janela influencia o fade (0.65 ~ suave)
 
   function updateSections() {
     const H = window.innerHeight;
@@ -69,3 +69,38 @@
 
   animEls.forEach(el => io.observe(el));
 })();
+
+/* ===== Lazy load otimizado dos vídeos ===== */
+(function () {
+  const videos = document.querySelectorAll("video[preload='none']");
+
+  if (!videos.length) return;
+
+  const io = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const video = entry.target;
+
+        // força carregar e tentar autoplay
+        video.load();
+        video.play().catch(() => { });
+
+        observer.unobserve(video); // não precisa mais observar
+      }
+    });
+  }, { threshold: 0.25 });
+
+  videos.forEach(v => io.observe(v));
+})();
+
+// ===== Loader Splash =====
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+  if (loader) {
+    setTimeout(() => {
+      loader.style.opacity = "0";
+      loader.style.transition = "opacity 0.8s ease";
+      setTimeout(() => loader.remove(), 800);
+    }, 1200); // mantém splash visível ~1.2s
+  }
+});
