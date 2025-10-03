@@ -349,7 +349,8 @@ footer {
 
   display: flex;
   align-items: center;
-  gap: 8px; /* espaço entre emoji e texto */
+  gap: 8px;
+  /* espaço entre emoji e texto */
 
   background: rgba(46, 9, 229, 0.9);
   color: #fff;
@@ -360,8 +361,9 @@ footer {
 
   font-size: 0.95rem;
   font-weight: 600;
-  white-space: nowrap; /* impede quebra de linha */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  white-space: nowrap;
+  /* impede quebra de linha */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: background 0.3s ease;
 }
 
@@ -386,11 +388,16 @@ footer {
   color: #fff;
   padding: 20px 30px;
   border-radius: 10px;
-  max-width: 500px;     /* largura máxima */
-  max-height: 70vh;     /* altura máxima: 70% da tela */
-  overflow-y: auto;     /* scroll vertical automático */
-  text-align: left;     /* melhor leitura para textos grandes */
-  line-height: 1.6;     /* mais espaçamento entre linhas */
+  max-width: 500px;
+  /* largura máxima */
+  max-height: 70vh;
+  /* altura máxima: 70% da tela */
+  overflow-y: auto;
+  /* scroll vertical automático */
+  text-align: left;
+  /* melhor leitura para textos grandes */
+  line-height: 1.6;
+  /* mais espaçamento entre linhas */
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
   position: relative;
 }

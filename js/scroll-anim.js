@@ -119,17 +119,27 @@ function showInfoModal(msg) {
     modal = document.createElement('div');
     modal.id = 'infoModal';
     modal.innerHTML = `
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <div class="modal-body"></div>
-  </div>
-`;
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <div class="modal-body"></div>
+      </div>
+    `;
     document.body.appendChild(modal);
 
+    // Fecha no X
     modal.querySelector('.close').addEventListener('click', () => {
       modal.style.display = 'none';
     });
+
+    // Fecha clicando fora do conteúdo
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
   }
-modal.querySelector('.modal-body').innerHTML = msg;
+
+  modal.querySelector('.modal-body').innerHTML = msg;
   modal.style.display = 'flex';
 }
+
