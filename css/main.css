@@ -168,27 +168,29 @@ footer {
 /* delays por atributo: data-anim-delay="200" (ms) — aplicado via JS */
 
 /* ===== Responsividade ===== */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.5rem;
-  }
-
-  h2 {
-    font-size: 2rem;
-  }
-
-  p {
-    font-size: 1rem;
-  }
-
-  img {
-    max-width: 90%;
-  }
-
-  section {
-    padding: 40px 15px;
-  }
+@media (max-width: 1024px) {
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.2rem; }
+  p  { font-size: 1.1rem; }
+  img, video { max-width: 75%; }
 }
+
+@media (max-width: 768px) {
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  p  { font-size: 1rem; }
+  img, video { max-width: 90%; }
+  section { padding: 40px 15px; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.6rem; }
+  p  { font-size: 0.95rem; }
+  img, video { max-width: 100%; border-radius: 12px; }
+  section { padding: 30px 10px; }
+}
+
 
 /* ===== Acessibilidade: reduzir movimento ===== */
 @media (prefers-reduced-motion: reduce) {
@@ -217,7 +219,7 @@ footer {
 
 #loader .logo {
   font-family: 'Inter', sans-serif;
-  font-size: 4rem;
+  font-size: 4rem; /* desktop padrão */
   font-weight: 700;
   letter-spacing: -2px;
   position: relative;
@@ -241,4 +243,25 @@ footer {
 
 @keyframes shine {
   100% { left: 125%; }
+}
+
+/* ===== Loader Responsivo ===== */
+@media (max-width: 768px) {
+  #loader .logo {
+    font-size: 2.5rem;   /* menor em tablets e celulares médios */
+    letter-spacing: -1px;
+  }
+  #loader .logo::after {
+    animation-duration: 2.5s; /* brilho mais suave */
+  }
+}
+
+@media (max-width: 480px) {
+  #loader .logo {
+    font-size: 2rem;     /* ainda menor em celulares pequenos */
+    letter-spacing: -0.5px;
+  }
+  #loader .logo::after {
+    animation-duration: 3s; /* brilho mais lento em telas pequenas */
+  }
 }
