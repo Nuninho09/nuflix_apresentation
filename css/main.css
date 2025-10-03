@@ -96,6 +96,20 @@ img:hover {
   filter: brightness(1.1);
 }
 
+/* Vídeos */
+video {
+  max-width: 55%;
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+  transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+video:hover {
+  transform: scale(1.02);
+  filter: brightness(1.05);
+}
+
+
 /* CTA */
 .cta-btn {
   display: inline-block;
@@ -169,27 +183,74 @@ footer {
 
 /* ===== Responsividade ===== */
 @media (max-width: 1024px) {
-  h1 { font-size: 3rem; }
-  h2 { font-size: 2.2rem; }
-  p  { font-size: 1.1rem; }
-  img, video { max-width: 75%; }
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+  }
+
+  img,
+  video {
+    max-width: 75%;
+  }
 }
 
 @media (max-width: 768px) {
-  h1 { font-size: 2.5rem; }
-  h2 { font-size: 2rem; }
-  p  { font-size: 1rem; }
-  img, video { max-width: 90%; }
-  section { padding: 40px 15px; }
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  img,
+  video {
+    max-width: 90%;
+  }
+
+  section {
+    padding: 40px 15px;
+  }
 }
 
 @media (max-width: 480px) {
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.6rem; }
-  p  { font-size: 0.95rem; }
-  img, video { max-width: 100%; border-radius: 12px; }
-  section { padding: 30px 10px; }
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* imagens e vídeos ocupam praticamente toda a largura, mas sem encostar */
+  img,
+  video {
+    max-width: 95%;
+    border-radius: 14px;
+  }
+
+  section {
+    padding: 25px 12px;
+  }
 }
+
 
 
 /* ===== Acessibilidade: reduzir movimento ===== */
@@ -210,7 +271,7 @@ footer {
 #loader {
   position: fixed;
   inset: 0;
-  background: linear-gradient(135deg,#000 0%, #111 100%);
+  background: linear-gradient(135deg, #000 0%, #111 100%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -219,15 +280,21 @@ footer {
 
 #loader .logo {
   font-family: 'Inter', sans-serif;
-  font-size: 4rem; /* desktop padrão */
+  font-size: 4rem;
+  /* desktop padrão */
   font-weight: 700;
   letter-spacing: -2px;
   position: relative;
   overflow: hidden;
 }
 
-#loader .nu { color: #e50914; }
-#loader .flix { color: #fff; }
+#loader .nu {
+  color: #e50914;
+}
+
+#loader .flix {
+  color: #fff;
+}
 
 /* Brilho animado */
 #loader .logo::after {
@@ -237,31 +304,39 @@ footer {
   left: -75%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
   animation: shine 2s infinite;
 }
 
 @keyframes shine {
-  100% { left: 125%; }
+  100% {
+    left: 125%;
+  }
 }
 
 /* ===== Loader Responsivo ===== */
 @media (max-width: 768px) {
   #loader .logo {
-    font-size: 2.5rem;   /* menor em tablets e celulares médios */
+    font-size: 2.5rem;
+    /* menor em tablets e celulares médios */
     letter-spacing: -1px;
   }
+
   #loader .logo::after {
-    animation-duration: 2.5s; /* brilho mais suave */
+    animation-duration: 2.5s;
+    /* brilho mais suave */
   }
 }
 
 @media (max-width: 480px) {
   #loader .logo {
-    font-size: 2rem;     /* ainda menor em celulares pequenos */
+    font-size: 2rem;
+    /* ainda menor em celulares pequenos */
     letter-spacing: -0.5px;
   }
+
   #loader .logo::after {
-    animation-duration: 3s; /* brilho mais lento em telas pequenas */
+    animation-duration: 3s;
+    /* brilho mais lento em telas pequenas */
   }
 }
