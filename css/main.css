@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 html {
@@ -38,7 +38,11 @@ section::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(229, 9, 20, 0.08), transparent 70%);
+  background: radial-gradient(
+    circle at center,
+    rgba(229, 9, 20, 0.08),
+    transparent 70%
+  );
   z-index: 0;
 }
 
@@ -109,7 +113,6 @@ video:hover {
   filter: brightness(1.05);
 }
 
-
 /* CTA */
 .cta-btn {
   display: inline-block;
@@ -142,8 +145,7 @@ footer {
 [data-anim] {
   opacity: 0;
   transform: translateY(40px);
-  transition:
-    opacity var(--anim-dur, 0.6s) ease,
+  transition: opacity var(--anim-dur, 0.6s) ease,
     transform var(--anim-dur, 0.6s) ease;
   will-change: opacity, transform;
 }
@@ -251,8 +253,6 @@ footer {
   }
 }
 
-
-
 /* ===== Acessibilidade: reduzir movimento ===== */
 @media (prefers-reduced-motion: reduce) {
   html {
@@ -279,7 +279,7 @@ footer {
 }
 
 #loader .logo {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 4rem;
   /* desktop padrão */
   font-weight: 700;
@@ -304,7 +304,12 @@ footer {
   left: -75%;
   width: 50%;
   height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
   animation: shine 2s infinite;
 }
 
@@ -371,7 +376,6 @@ footer {
   background: rgba(229, 9, 20, 1);
 }
 
-
 /* ===== Modal Info ===== */
 #infoModal {
   position: fixed;
@@ -401,7 +405,6 @@ footer {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
   position: relative;
 }
-
 
 #infoModal .close {
   position: absolute;

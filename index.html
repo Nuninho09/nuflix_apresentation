@@ -1,130 +1,180 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nuflix - Apresentação</title>
+    <meta
+      name="description"
+      content="Nuflix - Streaming moderno com filmes, séries e TV ao vivo."
+    />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nuflix - Apresentação</title>
-  <meta name="description" content="Nuflix - Streaming moderno com filmes, séries e TV ao vivo.">
-  <link rel="icon" type="image/png" href="assets/favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
-</head>
-
-<body>
-
-  <!-- Loader Splash -->
-  <div id="loader">
-    <div class="logo">
-      <span class="nu">NU</span><span class="flix">FLIX</span>
+  <body>
+    <!-- Loader Splash -->
+    <div id="loader">
+      <div class="logo">
+        <span class="nu">NU</span><span class="flix">FLIX</span>
+      </div>
     </div>
-  </div>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h1 data-anim="zoom-in">Nuflix</h1>
-    <p data-anim="fade-up" data-anim-delay="200">
-      Um projeto autoral que desenvolvi para explorar performance, UI/UX e desafios técnicos de um app de streaming
-      em diferentes plataformas.
-    </p>
-  </section>
+    <!-- Hero -->
+    <section class="hero">
+      <h1 data-anim="zoom-in">Nuflix</h1>
+      <p data-anim="fade-up" data-anim-delay="200">
+        Um projeto autoral que desenvolvi para explorar performance, UI/UX e
+        desafios técnicos de um app de streaming em diferentes plataformas.
+      </p>
+    </section>
 
+    <!-- Login -->
+    <section>
+      <h2 data-anim="fade-up">Login</h2>
+      <p data-anim="fade-up" data-anim-delay="200">
+        Acesso rápido e seguro à sua conta.
+      </p>
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        preload="none"
+        data-anim="zoom-in"
+        data-anim-delay="400"
+      >
+        <source
+          src="https://cdn.nuflixapp.com/site_apresentacao/login.mp4"
+          type="video/mp4"
+        />
+        Seu navegador não suporta vídeo.
+      </video>
 
-  <!-- Login -->
-  <section>
-    <h2 data-anim="fade-up">Login</h2>
-    <p data-anim="fade-up" data-anim-delay="200">Acesso rápido e seguro à sua conta.</p>
-    <video autoplay muted loop playsinline webkit-playsinline preload="none" data-anim="zoom-in" data-anim-delay="400">
-      <source src="https://cdn.nuflixapp.com/site_apresentacao/login.mp4" type="video/mp4">
-      Seu navegador não suporta vídeo.
-    </video>
+      <!-- BOTAO MODAL -->
+      <button class="info-btn" id="btn-login-info">⚙️ Detalhes Técnicos</button>
 
-    <!-- BOTAO MODAL -->
-    <button class="info-btn" id="btn-login-info">
-      ⚙️ Detalhes Técnicos
-    </button>
-
-    <script>
-      document.querySelector("#btn-login-info").dataset.info = `
+      <script>
+        document.querySelector("#btn-login-info").dataset.info = `
     <h3>Login Page</h3>
     <p>No início, implementei o login utilizando credenciais de validação diretamente no código da própria página de login. Porém, durante os testes, percebi que esse processo levava cerca de <strong>50 segundos</strong> para autenticar e liberar o acesso ao app.</p>
     <p>Para otimizar, decidi migrar as credenciais para o <strong>Supabase</strong>. Criei tabelas de usuários e DNS, e a página de login passou a realizar requisições diretas ao Supabase, consumindo apenas as informações necessárias. Com essa mudança, o tempo de login caiu para aproximadamente <strong>3 a 5 segundos</strong>.</p>
     <p>Outro desafio foi em relação ao <strong>foco para TV</strong>, que precisei implementar manualmente mapeando as teclas, já que o comportamento nativo do Flutter não atende bem.</p>
   `;
-    </script>
+      </script>
+    </section>
 
-  </section>
+    <!-- Criar Avatar -->
+    <section style="background: #111">
+      <h2 data-anim="fade-right">Criar Perfil</h2>
+      <p data-anim="fade-right" data-anim-delay="200">
+        Personalize a experiência com diferentes perfis.
+      </p>
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        preload="none"
+        data-anim="fade-left"
+        data-anim-delay="400"
+      >
+        <source
+          src="https://cdn.nuflixapp.com/site_apresentacao/criar_avatar.mp4"
+          type="video/mp4"
+        />
+        Seu navegador não suporta vídeo.
+      </video>
 
-  <!-- Criar Avatar -->
-  <section style="background:#111;">
-    <h2 data-anim="fade-right">Criar Perfil</h2>
-    <p data-anim="fade-right" data-anim-delay="200">Personalize a experiência com diferentes perfis.</p>
-    <video autoplay muted loop playsinline webkit-playsinline preload="none" data-anim="fade-left"
-      data-anim-delay="400">
-      <source src="https://cdn.nuflixapp.com/site_apresentacao/criar_avatar.mp4" type="video/mp4">
-      Seu navegador não suporta vídeo.
-    </video>
+      <!-- BOTAO MODAL -->
+      <button class="info-btn" id="btn-criar-perfil-info">
+        ⚙️ Detalhes Técnicos
+      </button>
 
-    <!-- BOTAO MODAL -->
-    <button class="info-btn" id="btn-criar-perfil-info">
-      ⚙️ Detalhes Técnicos
-    </button>
-
-    <script>
-      document.querySelector("#btn-criar-perfil-info").dataset.info = `
+      <script>
+        document.querySelector("#btn-criar-perfil-info").dataset.info = `
     <h3>Criar Perfil Page</h3>
     <p>No início, armazenei todas as imagens em uma pasta local do projeto. Porém, como já utilizava o Supabase em outras partes do app, optei por migrar também o armazenamento para o <strong>Supabase Storage</strong>.</p>
     <p>Depois de cerca de duas semanas de testes e ajustes no código, percebi que a conta gratuita havia estourado o limite do plano — algo estranho, já que apenas eu estava usando o app. Ao pesquisar melhor, descobri que o Supabase contabiliza <strong>egress</strong> a cada vez que o app faz download dos arquivos, o que tornava inviável escalar a aplicação usando o storage deles.</p>
     <p>Como solução, migrei todos os arquivos de mídia para o <strong>Cloudflare</strong>, configurei um <strong>domínio próprio</strong> e passei a servir o conteúdo via <strong>CDN</strong>, garantindo custo baixo e performance estável.</p>
     <p>Além disso, nesta tela também precisei implementar o <strong>foco manual com mapa de teclas</strong>, já que o suporte nativo do Flutter para TV não atende bem.</p>
   `;
-    </script>
+      </script>
+    </section>
 
-  </section>
+    <!-- Perfil -->
+    <section>
+      <h2 data-anim="fade-left">Perfil</h2>
+      <p data-anim="fade-left" data-anim-delay="200">
+        Gerencie suas preferências e histórico.
+      </p>
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        preload="none"
+        data-anim="zoom-in-up"
+        data-anim-delay="400"
+      >
+        <source
+          src="https://cdn.nuflixapp.com/site_apresentacao/perfil_video.mp4"
+          type="video/mp4"
+        />
+        Seu navegador não suporta vídeo.
+      </video>
 
-  <!-- Perfil -->
-  <section>
-    <h2 data-anim="fade-left">Perfil</h2>
-    <p data-anim="fade-left" data-anim-delay="200">Gerencie suas preferências e histórico.</p>
-    <video autoplay muted loop playsinline webkit-playsinline preload="none" data-anim="zoom-in-up"
-      data-anim-delay="400">
-      <source src="https://cdn.nuflixapp.com/site_apresentacao/perfil_video.mp4" type="video/mp4">
-      Seu navegador não suporta vídeo.
-    </video>
+      <!-- BOTAO MODAL -->
+      <button class="info-btn" id="btn-perfil-info">
+        ⚙️ Detalhes Técnicos
+      </button>
 
-    <!-- BOTAO MODAL -->
-    <button class="info-btn" id="btn-perfil-info">
-      ⚙️ Detalhes Técnicos
-    </button>
-
-    <script>
-      document.querySelector("#btn-perfil-info").dataset.info = `
+      <script>
+        document.querySelector("#btn-perfil-info").dataset.info = `
     <h3>Perfil Page</h3>
     <p>No início, armazenei todas as imagens em uma pasta local do projeto. Porém, como já utilizava o Supabase em outras partes do app, optei por migrar também o armazenamento para o <strong>Supabase Storage</strong>.</p>
     <p>Depois de cerca de duas semanas de testes e ajustes no código, percebi que a conta gratuita havia estourado o limite do plano — algo estranho, já que apenas eu estava usando o app. Ao pesquisar melhor, descobri que o Supabase contabiliza <strong>egress</strong> a cada vez que o app faz download dos arquivos, o que tornava inviável escalar a aplicação usando o storage deles.</p>
     <p>Como solução, migrei todos os arquivos de mídia para o <strong>Cloudflare</strong>, configurei um <strong>domínio próprio</strong> e passei a servir o conteúdo via <strong>CDN</strong>, garantindo custo baixo e performance estável.</p>
     <p>Além disso, nesta tela também precisei implementar o <strong>foco manual com mapa de teclas</strong>, já que o suporte nativo do Flutter para TV não atende bem.</p>
   `;
-    </script>
+      </script>
+    </section>
 
-  </section>
+    <!-- Home -->
+    <section style="background: #111">
+      <h2 data-anim="fade-up">Home</h2>
+      <p data-anim="fade-up" data-anim-delay="200">
+        Catálogo dinâmico com filmes, séries e categorias.
+      </p>
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        preload="none"
+        data-anim="fade-up"
+        data-anim-delay="400"
+      >
+        <source
+          src="https://cdn.nuflixapp.com/site_apresentacao/home_video.mp4"
+          type="video/mp4"
+        />
+        Seu navegador não suporta vídeo.
+      </video>
 
-  <!-- Home -->
-  <section style="background:#111;">
-    <h2 data-anim="fade-up">Home</h2>
-    <p data-anim="fade-up" data-anim-delay="200">Catálogo dinâmico com filmes, séries e categorias.</p>
-    <video autoplay muted loop playsinline webkit-playsinline preload="none" data-anim="fade-up" data-anim-delay="400">
-      <source src="https://cdn.nuflixapp.com/site_apresentacao/home_video.mp4" type="video/mp4">
-      Seu navegador não suporta vídeo.
-    </video>
+      <!-- BOTAO MODAL -->
+      <button class="info-btn" id="btn-home-info">⚙️ Detalhes Técnicos</button>
 
-    <!-- BOTAO MODAL -->
-    <button class="info-btn" id="btn-home-info">
-      ⚙️ Detalhes Técnicos
-    </button>
-
-    <script>
-      document.querySelector("#btn-home-info").dataset.info = `
+      <script>
+        document.querySelector("#btn-home-info").dataset.info = `
     <h3>Home Page</h3>
     <p>A <strong>Home Page</strong> foi, sem dúvida, uma das telas mais desafiadoras de implementar. Ela possui dois layouts distintos: um para <strong>celular</strong> e outro para <strong>TV</strong>.</p>
     <p>No celular, a estrutura foi relativamente simples, embora eu tenha enfrentado alguns problemas para carregar corretamente os blocos de filmes e séries. Já na versão para TV, as dificuldades foram bem maiores.</p>
@@ -132,51 +182,76 @@
     <p>A solução encontrada foi remover o foco que estava isolado em um arquivo separado do menu lateral e integrar diretamente esse controle na própria Home. Assim, a Home passou a gerenciar tanto o foco dos seus blocos quanto o do menu lateral. Esse mesmo padrão precisou ser replicado em todas as telas que utilizam menu lateral.</p>
     <p>Outro desafio foi a exibição dos <strong>Top 10</strong> (filmes e séries, tanto global quanto Brasil). Não consegui integrar isso automaticamente no início, então criei manualmente uma tabela no <strong>Supabase</strong> para atualizar os rankings. Por enquanto, o app faz requisições ao Supabase e retorna esses dados dinamicamente. A ideia futura é integrar com a <strong>API do TMDB</strong> para automatizar a atualização dos rankings.</p>
   `;
-    </script>
+      </script>
+    </section>
 
-  </section>
+    <!-- Menu Home -->
+    <section>
+      <h2 data-anim="fade-right">Menu Home</h2>
+      <p data-anim="fade-right" data-anim-delay="200">
+        Navegação rápida entre categorias e seções.
+      </p>
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        preload="none"
+        data-anim="fade-left"
+        data-anim-delay="400"
+      >
+        <source
+          src="https://cdn.nuflixapp.com/site_apresentacao/menu_home.mp4"
+          type="video/mp4"
+        />
+        Seu navegador não suporta vídeo.
+      </video>
 
-  <!-- Menu Home -->
-  <section>
-    <h2 data-anim="fade-right">Menu Home</h2>
-    <p data-anim="fade-right" data-anim-delay="200">Navegação rápida entre categorias e seções.</p>
-    <video autoplay muted loop playsinline webkit-playsinline preload="none" data-anim="fade-left"
-      data-anim-delay="400">
-      <source src="https://cdn.nuflixapp.com/site_apresentacao/menu_home.mp4" type="video/mp4">
-      Seu navegador não suporta vídeo.
-    </video>
+      <!-- BOTAO MODAL -->
+      <button class="info-btn" id="btn-menu-home-info">
+        ⚙️ Detalhes Técnicos
+      </button>
 
-    <!-- BOTAO MODAL -->
-    <button class="info-btn" id="btn-menu-home-info">
-      ⚙️ Detalhes Técnicos
-    </button>
-
-    <script>
-      document.querySelector("#btn-menu-home-info").dataset.info = `
+      <script>
+        document.querySelector("#btn-menu-home-info").dataset.info = `
     <h3>Menu Lateral (Home)</h3>
     <p>O <strong>menu lateral</strong> foi relativamente simples de implementar. Basicamente, defini as rotas principais que ele deveria acessar e a navegação funcionou sem grandes dificuldades.</p>
     <p>Os maiores desafios estiveram na parte visual. Um exemplo foi a implementação da <strong>bolinha vermelha sob os ícones</strong>, que precisava atualizar em tempo real assim que o usuário clicava em uma opção.</p>
     <p>Também tive alguns problemas pontuais ao implementar o comportamento de <strong>logout do servidor</strong>, que em certas situações causava pequenos bugs. No entanto, após alguns ajustes, consegui estabilizar o funcionamento.</p>
   `;
-    </script>
+      </script>
+    </section>
 
-  </section>
+    <!-- Detalhes Page -->
+    <section style="background: #111">
+      <h2 data-anim="fade-left">Detalhes</h2>
+      <p data-anim="fade-left" data-anim-delay="200">
+        Informações completas sobre filmes e séries.
+      </p>
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        preload="none"
+        data-anim="zoom-in"
+        data-anim-delay="400"
+      >
+        <source
+          src="https://cdn.nuflixapp.com/site_apresentacao/detalhes_page.mp4"
+          type="video/mp4"
+        />
+        Seu navegador não suporta vídeo.
+      </video>
+      <!-- BOTAO MODAL -->
+      <button class="info-btn" id="btn-detalhes-info">
+        ⚙️ Detalhes Técnicos
+      </button>
 
-  <!-- Detalhes Page -->
-  <section style="background:#111;">
-    <h2 data-anim="fade-left">Detalhes</h2>
-    <p data-anim="fade-left" data-anim-delay="200">Informações completas sobre filmes e séries.</p>
-    <video autoplay muted loop playsinline webkit-playsinline preload="none" data-anim="zoom-in" data-anim-delay="400">
-      <source src="https://cdn.nuflixapp.com/site_apresentacao/detalhes_page.mp4" type="video/mp4">
-      Seu navegador não suporta vídeo.
-    </video>
-    <!-- BOTAO MODAL -->
-    <button class="info-btn" id="btn-detalhes-info">
-      ⚙️ Detalhes Técnicos
-    </button>
-
-    <script>
-      document.querySelector("#btn-detalhes-info").dataset.info = `
+      <script>
+        document.querySelector("#btn-detalhes-info").dataset.info = `
     <h3>Detalhes Page</h3>
     <p>A <strong>Detalhes Page</strong> foi uma das mais desafiadoras, mas também uma das que mais gostei de desenvolver, principalmente pelo resultado visual. Fiquei surpreso com o quanto ela ficou bonita.</p>
     <p>O primeiro grande problema foi o conflito entre o meu <strong>foco manual</strong> e o <strong>foco automático do Flutter</strong>. Sempre que eu aplicava o foco manual, o automático interferia, gerando inconsistências. Foi nessa página que percebi que esse mesmo problema também estava presente em outras telas. A solução foi desabilitar totalmente o foco automático do Flutter e manter apenas o meu sistema de foco manual — o que corrigiu não só essa tela, mas várias outras.</p>
@@ -185,111 +260,150 @@
     <p>Além disso, adicionei uma seção de <strong>títulos semelhantes</strong>, que atualmente ainda não é totalmente precisa (os resultados vêm um pouco misturados), mas que pretendo melhorar futuramente.</p>
     <p>Outro detalhe importante é que, quando o trailer está tocando e o usuário clica para assistir ao filme, o trailer é <strong>pausado automaticamente</strong>. Ao sair do player (pelo botão voltar ou pelo “X”), em vez de voltar para o trailer no final, a tela exibe um <strong>background do filme ou série</strong>, garantindo uma transição mais elegante e sem o trailer bugado parado no fim.</p>
   `;
-    </script>
+      </script>
+    </section>
 
-  </section>
+    <!-- Player de Séries -->
+    <section>
+      <h2 data-anim="zoom-in">Player de Séries</h2>
+      <p data-anim="zoom-in" data-anim-delay="200">
+        Controle total de episódios, legendas e escolha rápida do próximo
+        episódio.
+      </p>
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        preload="none"
+        data-anim="fade-up"
+        data-anim-delay="400"
+      >
+        <source
+          src="https://cdn.nuflixapp.com/site_apresentacao/player_series.mp4"
+          type="video/mp4"
+        />
+        Seu navegador não suporta vídeo.
+      </video>
 
-  <!-- Player de Séries -->
-  <section>
-    <h2 data-anim="zoom-in">Player de Séries</h2>
-    <p data-anim="zoom-in" data-anim-delay="200">
-      Controle total de episódios, legendas e escolha rápida do próximo episódio.
-    </p>
-    <video autoplay muted loop playsinline webkit-playsinline preload="none" data-anim="fade-up" data-anim-delay="400">
-      <source src="https://cdn.nuflixapp.com/site_apresentacao/player_series.mp4" type="video/mp4">
-      Seu navegador não suporta vídeo.
-    </video>
+      <!-- BOTAO MODAL -->
+      <button class="info-btn" id="btn-player-series-info">
+        ⚙️ Detalhes Técnicos
+      </button>
 
-    <!-- BOTAO MODAL -->
-    <button class="info-btn" id="btn-player-series-info">
-      ⚙️ Detalhes Técnicos
-    </button>
-
-    <script>
-      document.querySelector("#btn-player-series-info").dataset.info = `
+      <script>
+        document.querySelector("#btn-player-series-info").dataset.info = `
     <h3>Player de Séries</h3>
     <p>A construção do <strong>Player de Séries</strong> foi inicialmente bem trabalhosa, porque eu não conseguia inserir os botões da forma que queria. A solução foi criar o meu próprio player personalizado e integrá-lo ao app.</p>
     <p>A parte mais legal foi poder desenvolver controles que remetem à experiência da <strong>Netflix</strong>, o que deixou a navegação mais familiar e intuitiva.</p>
     <p>O botão que mais gostei de implementar foi o de <strong>episódios</strong>. Com ele, o usuário não precisa sair da série que está assistindo para trocar de episódio. Isso permite, por exemplo, rever um trecho rapidamente ou pular direto para outro episódio sem ter que sair, voltar ao catálogo e procurar manualmente.</p>
     <p>Além desse, também implementei outros botões úteis: <strong>voltar ao início</strong>, <strong>adicionar aos favoritos</strong>, <strong>próximo episódio</strong>, entre outros — todos pensados para tornar a experiência mais prática e completa.</p>
   `;
-    </script>
+      </script>
+    </section>
 
-  </section>
+    <!-- Player ao vivo -->
+    <section>
+      <h2 data-anim="fade-right">Player ao Vivo</h2>
+      <p data-anim="fade-right" data-anim-delay="200">
+        Transmissão ao vivo com qualidade premium.
+      </p>
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        preload="none"
+        data-anim="fade-left"
+        data-anim-delay="400"
+      >
+        <source
+          src="https://cdn.nuflixapp.com/site_apresentacao/player_ao_vivo.mp4"
+          type="video/mp4"
+        />
+        Seu navegador não suporta vídeo.
+      </video>
 
-  <!-- Player ao vivo -->
-  <section>
-    <h2 data-anim="fade-right">Player ao Vivo</h2>
-    <p data-anim="fade-right" data-anim-delay="200">Transmissão ao vivo com qualidade premium.</p>
-    <video autoplay muted loop playsinline webkit-playsinline preload="none" data-anim="fade-left"
-      data-anim-delay="400">
-      <source src="https://cdn.nuflixapp.com/site_apresentacao/player_ao_vivo.mp4" type="video/mp4">
-      Seu navegador não suporta vídeo.
-    </video>
+      <!-- BOTAO MODAL -->
+      <button class="info-btn" id="btn-player-live-info">
+        ⚙️ Detalhes Técnicos
+      </button>
 
-    <!-- BOTAO MODAL -->
-    <button class="info-btn" id="btn-player-live-info">
-      ⚙️ Detalhes Técnicos
-    </button>
-
-    <script>
-      document.querySelector("#btn-player-live-info").dataset.info = `
+      <script>
+        document.querySelector("#btn-player-live-info").dataset.info = `
     <h3>Player ao Vivo</h3>
     <p>O <strong>Player ao Vivo</strong> começou de forma bastante simples, sem recursos como botões de próximo/anteriores canais, favoritar ou reconectar. No início, ele era funcional, mas ainda muito cru.</p>
     <p>Com o tempo, decidi aprimorá-lo e implementei uma <strong>guia inferior</strong> sobreposta ao player, adicionando novos botões: <strong>próximo canal</strong>, <strong>canal anterior</strong> e <strong>reconectar</strong>. Esse último é especialmente útil, pois permite que, caso um canal trave, o usuário pressione e o player recarregue o streaming do zero.</p>
     <p>Também integrei informações do <strong>EPG (guia de programação)</strong>, exibindo os programas atuais com seus horários de início e término. Para complementar, incluí uma <strong>barra de progresso vermelha</strong>, que avança proporcionalmente ao tempo real do programa em exibição.</p>
     <p>Além disso, cada canal aparece identificado com seu <strong>nome e logotipo</strong>, o que deixou a experiência muito mais clara e visualmente agradável. O resultado foi um player ao vivo mais completo, moderno e bonito.</p>
   `;
-    </script>
+      </script>
+    </section>
 
-  </section>
+    <!-- Lista de canais -->
+    <section>
+      <h2 data-anim="fade-up">Lista de Canais</h2>
+      <p data-anim="fade-up" data-anim-delay="200">
+        Organização intuitiva com mini player de preview.
+      </p>
+      <video
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        preload="none"
+        data-anim="fade-up"
+        data-anim-delay="400"
+      >
+        <source
+          src="https://cdn.nuflixapp.com/site_apresentacao/lista_canais_mini_player_preview.mp4"
+          type="video/mp4"
+        />
+        Seu navegador não suporta vídeo.
+      </video>
 
-  <!-- Lista de canais -->
-  <section>
-    <h2 data-anim="fade-up">Lista de Canais</h2>
-    <p data-anim="fade-up" data-anim-delay="200">Organização intuitiva com mini player de preview.</p>
-    <video autoplay muted loop playsinline webkit-playsinline preload="none" data-anim="fade-up" data-anim-delay="400">
-      <source src="https://cdn.nuflixapp.com/site_apresentacao/lista_canais_mini_player_preview.mp4" type="video/mp4">
-      Seu navegador não suporta vídeo.
-    </video>
+      <!-- BOTAO MODAL -->
+      <button class="info-btn" id="btn-lista-canais-info">
+        ⚙️ Detalhes Técnicos
+      </button>
 
-    <!-- BOTAO MODAL -->
-    <button class="info-btn" id="btn-lista-canais-info">
-      ⚙️ Detalhes Técnicos
-    </button>
-
-    <script>
-      document.querySelector("#btn-lista-canais-info").dataset.info = `
+      <script>
+        document.querySelector("#btn-lista-canais-info").dataset.info = `
     <h3>Lista de Canais</h3>
     <p>A <strong>Lista de Canais</strong> foi uma página relativamente simples de desenvolver. Ela conta com layouts distintos para <strong>celular</strong> e <strong>TV</strong>, mas em ambos os casos a implementação ocorreu sem maiores dificuldades, tanto na parte de foco quanto na navegação.</p>
     <p>Essa tela também integra o <strong>EPG (guia de programação)</strong>, exibindo as informações dos programas em cada canal. Na versão para TV, implementei três formatos de layout: <strong>grade</strong>, <strong>lista</strong> e <strong>miniplayer</strong>.</p>
     <p>O modo <strong>miniplayer</strong> é o mais utilizado: ao clicar em um canal, abre-se uma tela que combina a transmissão em miniatura com o guia de programação, permitindo ao usuário acompanhar o conteúdo e navegar de forma prática.</p>
     <p>No geral, foi uma tela direta e tranquila de implementar, sem grandes complicações.</p>
   `;
-    </script>
+      </script>
+    </section>
 
-  </section>
+    <!-- Call to action (Apresentação Profissional) -->
+    <section style="background: linear-gradient(135deg, #111, #000)">
+      <h2 data-anim="zoom-in">Interessado em saber mais?</h2>
+      <p data-anim="fade-up" data-anim-delay="200">
+        Este projeto foi desenvolvido como parte do meu portfólio, mostrando
+        desafios reais de UI/UX, integrações e arquitetura para apps de
+        streaming.
+      </p>
+      <a
+        href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile"
+        target="_blank"
+        class="cta-btn"
+        data-anim="zoom-in"
+        data-anim-delay="400"
+      >
+        📩 Entre em contato
+      </a>
+    </section>
 
+    <footer>
+      <p>© 2025 Nuflix — Desenvolvido por Yuri Nunes</p>
+    </footer>
 
-  <!-- Call to action (Apresentação Profissional) -->
-  <section style="background:linear-gradient(135deg,#111,#000);">
-    <h2 data-anim="zoom-in">Interessado em saber mais?</h2>
-    <p data-anim="fade-up" data-anim-delay="200">
-      Este projeto foi desenvolvido como parte do meu portfólio, mostrando desafios reais de
-      UI/UX, integrações e arquitetura para apps de streaming.
-    </p>
-    <a href="https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile"
-      target="_blank" class="cta-btn" data-anim="zoom-in" data-anim-delay="400">
-      📩 Entre em contato
-    </a>
-  </section>
-
-
-  <footer>
-    <p>© 2025 Nuflix — Desenvolvido por Yuri Nunes</p>
-  </footer>
-
-  <script src="js/scroll-anim.js"></script>
-</body>
-
+    <script src="js/scroll-anim.js"></script>
+  </body>
 </html>

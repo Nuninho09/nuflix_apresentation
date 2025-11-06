@@ -3,15 +3,20 @@
   const sections = Array.from(document.querySelectorAll("section"));
   if (!sections.length) return;
 
-  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const reduceMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
   if (reduceMotion) {
-    sections.forEach(sec => { sec.style.opacity = 1; sec.style.transform = "none"; });
+    sections.forEach((sec) => {
+      sec.style.opacity = 1;
+      sec.style.transform = "none";
+    });
     return;
   }
 
   let rafId = null;
-  const MAX_TRANSLATE = 40;       // px máximos de deslocamento quando longe do centro
-  const FADE_RADIUS = 0.75;     // quanto da janela influencia o fade (0.65 ~ suave)
+  const MAX_TRANSLATE = 40; // px máximos de deslocamento quando longe do centro
+  const FADE_RADIUS = 0.75; // quanto da janela influencia o fade (0.65 ~ suave)
 
   function updateSections() {
     const H = window.innerHeight;
@@ -20,10 +25,10 @@
     for (const sec of sections) {
       const rect = sec.getBoundingClientRect();
       const secCenter = rect.top + rect.height / 2;
-      const dist = Math.abs(secCenter - center);                // distância do centro
-      const t = Math.min(1, dist / (H * FADE_RADIUS));          // 0 (centro) -> 1 (longe)
-      const opacity = 1 - t;                                    // mais perto, mais opaco
-      const translateY = MAX_TRANSLATE * t;                     // desloca pra baixo sutilmente
+      const dist = Math.abs(secCenter - center); // distância do centro
+      const t = Math.min(1, dist / (H * FADE_RADIUS)); // 0 (centro) -> 1 (longe)
+      const opacity = 1 - t; // mais perto, mais opaco
+      const translateY = MAX_TRANSLATE * t; // desloca pra baixo sutilmente
 
       sec.style.opacity = opacity.toFixed(3);
       sec.style.transform = `translateY(${translateY}px)`;
@@ -32,8 +37,11 @@
   }
 
   function onVisibilityChange() {
-    if (document.hidden) { if (rafId) cancelAnimationFrame(rafId); }
-    else { updateSections(); }
+    if (document.hidden) {
+      if (rafId) cancelAnimationFrame(rafId);
+    } else {
+      updateSections();
+    }
   }
 
   window.addEventListener("load", updateSections, { passive: true });
@@ -53,21 +61,24 @@
     if (dur) el.style.setProperty("--anim-dur", `${parseInt(dur, 10)}ms`);
   }
 
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      // quando entra, liga; quando sai, desliga (pra animar de novo quando voltar)
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-      } else {
-        entry.target.classList.remove("visible");
-      }
-    });
-  }, {
-    threshold: 0.25, // 25% visível já conta
-    rootMargin: "0px 0px -10% 0px" // liga um pouco antes do centro
-  });
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        // quando entra, liga; quando sai, desliga (pra animar de novo quando voltar)
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        } else {
+          entry.target.classList.remove("visible");
+        }
+      });
+    },
+    {
+      threshold: 0.25, // 25% visível já conta
+      rootMargin: "0px 0px -10% 0px", // liga um pouco antes do centro
+    }
+  );
 
-  animEls.forEach(el => io.observe(el));
+  animEls.forEach((el) => io.observe(el));
 })();
 
 /* ===== Lazy load otimizado dos vídeos ===== */
@@ -76,21 +87,24 @@
 
   if (!videos.length) return;
 
-  const io = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const video = entry.target;
+  const io = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const video = entry.target;
 
-        // força carregar e tentar autoplay
-        video.load();
-        video.play().catch(() => { });
+          // força carregar e tentar autoplay
+          video.load();
+          video.play().catch(() => {});
 
-        observer.unobserve(video); // não precisa mais observar
-      }
-    });
-  }, { threshold: 0.25 });
+          observer.unobserve(video); // não precisa mais observar
+        }
+      });
+    },
+    { threshold: 0.25 }
+  );
 
-  videos.forEach(v => io.observe(v));
+  videos.forEach((v) => io.observe(v));
 })();
 
 // ===== Loader Splash =====
@@ -106,18 +120,18 @@ window.addEventListener("load", () => {
 });
 
 // ===== Info Buttons (modal explicativo) =====
-document.querySelectorAll('.info-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const msg = btn.getAttribute('data-info');
+document.querySelectorAll(".info-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const msg = btn.getAttribute("data-info");
     showInfoModal(msg);
   });
 });
 
 function showInfoModal(msg) {
-  let modal = document.getElementById('infoModal');
+  let modal = document.getElementById("infoModal");
   if (!modal) {
-    modal = document.createElement('div');
-    modal.id = 'infoModal';
+    modal = document.createElement("div");
+    modal.id = "infoModal";
     modal.innerHTML = `
       <div class="modal-content">
         <span class="close">&times;</span>
@@ -127,19 +141,18 @@ function showInfoModal(msg) {
     document.body.appendChild(modal);
 
     // Fecha no X
-    modal.querySelector('.close').addEventListener('click', () => {
-      modal.style.display = 'none';
+    modal.querySelector(".close").addEventListener("click", () => {
+      modal.style.display = "none";
     });
 
     // Fecha clicando fora do conteúdo
-    modal.addEventListener('click', (e) => {
+    modal.addEventListener("click", (e) => {
       if (e.target === modal) {
-        modal.style.display = 'none';
+        modal.style.display = "none";
       }
     });
   }
 
-  modal.querySelector('.modal-body').innerHTML = msg;
-  modal.style.display = 'flex';
+  modal.querySelector(".modal-body").innerHTML = msg;
+  modal.style.display = "flex";
 }
-
